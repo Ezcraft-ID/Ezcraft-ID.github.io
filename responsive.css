@@ -1,0 +1,31 @@
+@media (min-width:670px) and (max-width:1024px){
+    .photo_name{
+      width:70%;
+      margin: 0 auto;
+      align-items: center;
+      float: none;
+    }
+    .photo_name img{
+      width: 250px;
+      height: 250px;
+      float: none;
+      display: flex;
+      margin: 20px auto;
+    }
+    .photo_name h1{
+      float: none;
+      width: 100%;
+      padding: 10px;
+      text-align: center;
+    }
+    .flex_box{
+      flex-wrap: wrap;
+    }
+    .flex_box li{
+      width: 50%;
+    }
+    .flex_box p{
+      text-align: center;
+    }
+  
+}
