@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@700&display=swap');
+
+  
+  html{
+    background : url(../bg/bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  div.judul{
+    color: white;
+    font-family: 'Sofia Sans', sans-serif;
+    text-align: center;
+  }
+  div.deskripsi{
+    font-family: Sans-Serif;
+    font-size: 14;
+    text-align: center;
+    color: white;
+  }
+  div.akhiran{
+    font-size: 10;
+  }
+  img{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+  }
+  a.fb{
+    color: #000;
+    background: #1E90FF;
+    color: whitesmoke;
+    padding: 5px 10px;
+    border: 1px solid;
+    font-family: Sans-Serif;
+  }
+  a.ig{
+    color: #000;
+    background: #3F729B;
+    color: whitesmoke;
+    padding: 5px 10px;
+    border: 1px solid;
+    font-family: Sans-Serif;
+  }
+  a.yt{
+    color: #000;
+    background: #C4302B;
+    color: whitesmoke;
+    padding: 5px 10px;
+    border: 1px solid;
+    font-family: Sans-Serif;
+  }
+  div.medsos{
+    text-align: center;
+    font-size: 20px;
+    color: white;
+    font-family: 'Sofia Sans', sans-serif;
+  }
+  div.yt{
+    color: white;
+    font-size: 20px;
+    font-family: 'Sofia Sans', sans-serif;
+  }
+/*Medium devices (tablets, 768px and up)*/
+
+@media (min-width: 768px) {
+  
+main {	
+	max-width: 420px;
+}
+}
