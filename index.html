@@ -40,6 +40,8 @@
 </head>
 <body class="pudar">
   <iframe id="youtubeAudio" width="0" height="0" src="https://www.youtube.com/embed/wnWKS7JEqWM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="display:none;"></iframe>
+    <iframe id="youtubeAudio1" width="0" height="0" src="https://www.youtube.com/embed/jfKfPfyJRdk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="display:none;"></iframe>
+
     <div class="container">
       <audio id="myAudio">
         <source src="https://www.youtube.com/embed/rUxyKA_-grg" type="audio/mpeg">
@@ -53,15 +55,24 @@
         <br>
         <p class="pudargeseratas">gkda music online service lain</p>
         <br>
-        <button id="playButton" class="button pudargeseratas">Lo-Fi Music</button>
+        <button id="playButton" class="button pudargeseratas">Nightcore Music</button>
+        <br>
+        <button id="playButton1" class="button pudargeseratas">Lo-Fi Music</button>
     </div>
 
     <script>
-        document.getElementById('playButton').addEventListener('click', function() {
+document.getElementById('playButton').addEventListener('click', function() {
     var audio = document.getElementById('youtubeAudio');
     audio.src += "?autoplay=1"; 
-    audio.src = audio.src; // Untuk memaksa iframe memuat ulang dengan parameter autoplay
+    audio.src = audio.src;
 });
+
+document.getElementById('playButton1').addEventListener('click', function() {
+    var audio = document.getElementById('youtubeAudio1');
+    audio.src += "?autoplay=1"; 
+    audio.src = audio.src;
+});
+
 
         function showMessage() {
             alert('Lu punya hosting lu punya kuasa');
