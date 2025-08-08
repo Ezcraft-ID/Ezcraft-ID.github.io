@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portofolio | Deni ARP</title>
+  <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="font-[Poppins] text-gray-900 dark:text-gray-100 transition-colors duration-500">
+
+  <!-- Background Animasi -->
+  <canvas id="bgCanvas" class="fixed top-0 left-0 w-full h-full -z-10"></canvas>
+
+  <!-- Navbar -->
+  <header class="fixed w-full bg-white/60 dark:bg-gray-900/60 backdrop-blur-md shadow-sm z-50">
+    <nav class="max-w-5xl mx-auto flex justify-between items-center p-4">
+      <h1 class="text-lg font-bold">Deni ARP</h1>
+      <ul class="hidden md:flex gap-6">
+        <li><a href="#about" class="hover:text-blue-500">Tentang</a></li>
+        <li><a href="#skills" class="hover:text-blue-500">Keahlian</a></li>
+        <li><a href="#projects" class="hover:text-blue-500">Proyek</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="min-h-screen flex flex-col justify-center items-center text-center px-4">
+    <img src="assets/img/potrait.jpg" alt="Foto Deni" class="rounded-full w-40 h-40 shadow-lg border-4 border-white mb-4">
+    <h2 class="text-3xl md:text-4xl font-bold">Deni April Rian Pratama</h2>
+    <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 mt-2">
+      Pelajar SMK - Teknik Jaringan Komputer & Telekomunikasi
+    </p>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="max-w-4xl mx-auto py-20 px-6 text-center">
+    <h2 class="text-2xl font-bold mb-4">Tentang Saya</h2>
+    <p class="text-gray-700 dark:text-gray-300">
+      Saya adalah siswa SMK jurusan Teknik Jaringan Komputer dan Telekomunikasi (TJKT), atau dikenal juga sebagai TKJ. 
+      Memiliki minat di bidang jaringan, teknologi, dan komputer. 
+      Sedang mengembangkan kemampuan di bidang IT untuk mempersiapkan karier di masa depan.
+    </p>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="bg-gray-100 dark:bg-gray-800 py-20 px-6 text-center">
+    <h2 class="text-2xl font-bold mb-8">Keahlian</h2>
+    <div class="flex flex-wrap justify-center gap-4">
+      <span class="skill-badge">HTML</span>
+      <span class="skill-badge">CSS</span>
+      <span class="skill-badge">JavaScript</span>
+      <span class="skill-badge">Networking</span>
+      <span class="skill-badge">Hardware</span>
+      <span class="skill-badge">IoT (Internet of Things)</span>
+      <span class="skill-badge">Microsoft Office</span>
+      <span class="skill-badge">Canva</span>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="max-w-5xl mx-auto py-20 px-6 text-center">
+    <h2 class="text-2xl font-bold mb-8">Proyek</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="project-card">
+        <h3 class="text-lg font-bold mb-2">IoT Penyiram Tanaman</h3>
+        <p>Pernah merancang sebuah prototype IoT yaitu penyiram tanaman otomatis dan bisa diaktifkan manual melalui website/aplikasi menggunakan ESP8266 sebagai microcontroller-nya. </p>
+      </div>
+      <div class="project-card">
+        <h3 class="text-lg font-bold mb-2">Jaringan LAN</h3>
+        <p>Pernah merancang dan memasang jaringan LAN untuk lab komputer sekolah.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Floating Contact Button -->
+  <div class="fixed bottom-20 right-6 flex flex-col items-end gap-3 z-50">
+    <!-- Icons -->
+    <a href="https://instagram.com/deniii.26_/" class="contact-icon bg-pink-500"><img src="https://img.icons8.com/ios-filled/24/ffffff/instagram-new.png"/></a>
+    <a href="https://facebook.com/deniaprilrian.p26/" class="contact-icon bg-blue-600"><img src="https://img.icons8.com/ios-filled/24/ffffff/facebook.png"/></a>
+    <a href="https://tiktok.com/@deni.26_/" class="contact-icon bg-black"><img src="https://img.icons8.com/ios-filled/24/ffffff/tiktok.png"/></a>
+    <a href="mailto:deniaprilrian.p108@gmail.com/" class="contact-icon bg-red-500"><img src="https://img.icons8.com/ios-filled/24/ffffff/email.png"/></a>
+
+    <!-- Main Button -->
+    <button id="contactToggle" class="w-14 h-14 rounded-full bg-blue-500 shadow-lg flex items-center justify-center">
+      <img src="https://img.icons8.com/ios-filled/28/ffffff/plus-math.png"/>
+    </button>
+  </div>
+
+  <!-- Footer -->
+  <footer class="fixed bottom-0 w-full bg-white/30 dark:bg-gray-900/30 backdrop-blur-md text-center py-4 text-gray-600 dark:text-gray-400">
+    &copy; 2025 Deni ARP. Dibuat dengan penuh semangat.
+  </footer>
+
+<!-- GIF Pojok Kiri (ikuti tombol +) -->
+<img id="gifDekorasi" src="assets/img/hu-tao.gif"
+     alt="GIF Dekorasi"
+     class="fixed left-4 w-20 sm:w-20 h-auto z-50 pointer-events-auto max-w-[100px]">
+
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
