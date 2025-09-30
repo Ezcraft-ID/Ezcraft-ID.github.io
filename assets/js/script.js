@@ -90,7 +90,7 @@ contactToggle.addEventListener("click", () => {
     const gif = document.getElementById('gifDekorasi');
     if (!gif) return;
 
-    // Hapus bubble lama
+    // Hapus bubble lama jika ada
     const old = document.getElementById('chatBubbleDekor');
     if (old) old.remove();
 
@@ -122,66 +122,50 @@ contactToggle.addEventListener("click", () => {
     const gRect = gif.getBoundingClientRect();
 
     // default posisi: di kanan-atas GIF (disamping kanan atasnya)
-    // left = right edge of GIF + gap
-    // top = top edge of GIF - small offset (so it sits slightly above)
-    const gap = 8; // jarak kecil antara GIF dan bubble
+    const gap = 8;
     const viewportW = window.innerWidth;
     const viewportH = window.innerHeight;
 
-    // setelah append, dapatkan ukuran bubble
     const bRect = bubble.getBoundingClientRect();
 
     // prefer: kanan-atas
     let left = Math.round(gRect.right + gap);
-    let top = Math.round(gRect.top - 6); // sedikit naik supaya "atas"
+    let top = Math.round(gRect.top - 6);
 
-    // jika melebihi kanan viewport, fallback ke kiri-atas (di atas GIF, aligned right)
+    // jika melebihi kanan viewport, fallback ke kiri-atas
     if (left + bRect.width + 8 > viewportW) {
-      left = Math.round(gRect.left + gRect.width - bRect.width); // aligned right to GIF
+      left = Math.round(gRect.left + gRect.width - bRect.width);
       top = Math.round(gRect.top - bRect.height - gap);
     }
 
-    // jika top terlalu kecil (keluar atas layar), posisikan sedikit di bawah top
+    // jika top terlalu kecil (keluar atas layar)
     if (top < 8) top = Math.min(8, viewportH - bRect.height - 8);
 
-    // set posisi fixed (px)
     bubble.style.left = left + 'px';
     bubble.style.top = top + 'px';
 
-    // position arrow:
-    // arrow should be near the GIF's vertical center for right arrow,
-    // or near bottom center if bubble is above GIF.
     const arrowSize = 12;
     const arrowOffset = 6;
 
     if (left > gRect.right) {
-      // bubble is on the right side: arrow on left side of bubble, vertically near gif top
       arrow.style.left = (-arrowSize/2) + 'px';
-      // try align arrow's top to be near gif top
       let arrowTop = (gRect.top - top) + arrowOffset;
-      // clamp
       arrowTop = Math.max(6, Math.min(bRect.height - 6, arrowTop));
       arrow.style.top = Math.round(arrowTop) + 'px';
     } else {
-      // bubble is above GIF: arrow on bottom of bubble, horizontally near gif center
       arrow.style.top = (bRect.height - arrowSize/2) + 'px';
-      // compute gif center x relative to bubble left
       let centerX = (gRect.left + gRect.width/2) - left;
-      centerX = Math.max(10, Math.min(bRect.width - 10, centerX)); // clamp
+      centerX = Math.max(10, Math.min(bRect.width - 10, centerX));
       arrow.style.left = Math.round(centerX - arrowSize/2) + 'px';
     }
 
-    // show with tiny pop animation
-    // force reflow
     bubble.offsetHeight;
     bubble.classList.remove('chat-bubble-hidden');
     bubble.classList.add('chat-bubble-show');
 
-    // auto-hide after 3s (customizable)
     if (bubbleTimeout) clearTimeout(bubbleTimeout);
     bubbleTimeout = setTimeout(hideChatBubble, 3000);
 
-    // close on click
     bubble.addEventListener('click', hideChatBubble);
   }
 
@@ -218,12 +202,9 @@ contactToggle.addEventListener("click", () => {
     syncGifWithButton();
     bindGifInteraction();
 
-    // update posisi gif saat load/resize, tapi JANGAN reposition bubble pada scroll
-    // (agar bubble tidak 'mengikuti' scroll dan tetap fixed)
     window.addEventListener('load', syncGifWithButton);
     window.addEventListener('resize', syncGifWithButton);
 
-    // tetap sinkron jika tombol + berubah class/style
     const tombolPlus = document.getElementById('contactToggle');
     if (tombolPlus && tombolPlus.parentElement) {
       const obs = new MutationObserver(() => syncGifWithButton());
@@ -232,3 +213,50 @@ contactToggle.addEventListener("click", () => {
   }
 
   window.addEventListener('DOMContentLoaded', initGifWithBubble);
+
+  // ---------- FUNGSI BARU: Tampilkan bubble sambutan saat web selesai loading ----------
+  function showWelcomeBubble() {
+    // Durasi preloader: 1500ms (tahan) + 500ms (fade-out) = 2000ms
+    // Kita tampilkan bubble setelah 2.5 detik agar preloader pasti sudah hilang.
+    const delayAfterLoad = 2500; 
+
+    setTimeout(() => {
+      showChatBubble('Selamat Datang!');
+    }, delayAfterLoad);
+  }
+
+  // Panggil fungsi di atas saat semua resource halaman (gambar, dll) sudah termuat
+  window.addEventListener('load', showWelcomeBubble);
+
+
+  // ---------- KODE AUDIO (dan seterusnya) ----------
+  const audio = document.getElementById('bgAudio');
+  const btn = document.getElementById('diskBtn');
+  const icon = btn.querySelector('i');
+
+  audio.muted = true;
+  audio.play().catch(() => {});
+
+  function updateIcon() {
+    if (!audio.paused && !audio.muted) {
+      icon.classList.add('spin');
+    } else {
+      icon.classList.remove('spin');
+    }
+  }
+
+  btn.addEventListener('click', () => {
+    if (audio.muted || audio.paused) {
+      audio.muted = false;
+      audio.play();
+    } else {
+      audio.muted = true;
+    }
+    updateIcon();
+  });
+
+  audio.addEventListener('play', updateIcon);
+  audio.addEventListener('pause', updateIcon);
+  audio.addEventListener('volumechange', updateIcon);
+
+  updateIcon();

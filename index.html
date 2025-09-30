@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portofolio | Deni ARP</title>
   <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
-  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   
@@ -17,6 +18,20 @@
 </head>
 <body class="font-[Poppins] text-gray-900 dark:text-gray-100 transition-colors duration-500">
 
+  <!-- ================= AWAN CSS ================== -->
+  <div id="clouds-container">
+    <div class="cloud"></div>
+    <div class="cloud"></div>
+    <div class="cloud"></div>
+  </div>
+  <!-- ============================================= -->
+
+  <!-- ================= PRELOADER ================= -->
+  <div id="preloader" class="fixed top-0 left-0 w-full h-full bg-white dark:bg-gray-900 flex items-center justify-center z-[9999]">
+    <img src="assets/img/preload.gif" alt="Loading..." class="w-24 h-24">
+  </div>
+  <!-- ============================================= -->
+
   <!-- Background Animasi -->
   <canvas id="bgCanvas" class="fixed top-0 left-0 w-full h-full -z-10"></canvas>
 
@@ -24,11 +39,22 @@
   <header class="fixed w-full bg-white/60 dark:bg-gray-900/60 backdrop-blur-md shadow-sm z-50">
     <nav class="max-w-5xl mx-auto flex justify-between items-center p-4">
       <h1 class="text-lg font-bold">Deni ARP</h1>
-      <ul class="hidden md:flex gap-6">
-        <li><a href="#about" class="hover:text-blue-500">Tentang</a></li>
-        <li><a href="#skills" class="hover:text-blue-500">Keahlian</a></li>
-        <li><a href="#projects" class="hover:text-blue-500">Proyek</a></li>
-      </ul>
+      
+      <!-- Wrapper untuk item di sebelah kanan -->
+      <div class="flex items-center gap-4">
+        <ul class="hidden md:flex gap-6">
+          <li><a href="#about" class="hover:text-blue-500">Tentang</a></li>
+          <li><a href="#skills" class="hover:text-blue-500">Keahlian</a></li>
+          <li><a href="#projects" class="hover:text-blue-500">Proyek</a></li>
+        </ul>
+  
+        <!-- Tombol Musik (SUDAH DIPERBAIKI) -->
+        <button id="diskBtn" aria-label="Toggle Music" title="Toggle Music"
+          class="w-10 h-10 flex items-center justify-center bg-gray-100/80 dark:bg-gray-800/80 rounded-full shadow-md transition-transform hover:scale-110">
+          <i class="fa-solid fa-compact-disc text-gray-800 dark:text-gray-200 text-xl"></i>
+        </button>
+      </div>
+      
     </nav>
   </header>
 
@@ -100,11 +126,37 @@
     &copy; 2025 Deni ARP. Dibuat dengan penuh semangat.
   </footer>
 
+<<<<<<< HEAD
 <!-- GIF Pojok Kiri (ikuti tombol +) -->
 <img id="gifDekorasi" src="assets/img/hu-tao.gif"
      alt="My bubub🥰"
      class="fixed left-4 w-20 sm:w-20 h-auto z-50 pointer-events-auto max-w-[100px]">
+=======
+  <!-- GIF Pojok Kiri (ikuti tombol +) -->
+  <img id="gifDekorasi" src="assets/img/hu-tao.gif"
+       alt="GIF Dekorasi"
+       class="fixed left-4 w-20 sm:w-20 h-auto z-50 pointer-events-auto max-w-[100px]">
+>>>>>>> 42b19f3 (refreshing)
 
+  <audio id="bgAudio" loop preload="auto" muted>
+    <source src="assets/bgm/bgm.mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- JS -->
   <script src="assets/js/script.js"></script>
+<script>
+  window.addEventListener("load", () => {
+    const preloader = document.getElementById("preloader");
+    
+    // Tahan dulu
+    setTimeout(() => {
+      preloader.style.opacity = "0";
+      setTimeout(() => {
+        preloader.style.display = "none";
+      }, 500); // delay animasi fade-out
+    }, 1500); // waktu preload
+  });
+</script>
+
 </body>
 </html>
