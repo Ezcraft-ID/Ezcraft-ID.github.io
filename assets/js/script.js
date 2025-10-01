@@ -221,7 +221,7 @@ contactToggle.addEventListener("click", () => {
     const delayAfterLoad = 2500; 
 
     setTimeout(() => {
-      showChatBubble('Selamat Datang!');
+      showChatBubble('Selamat Datang~!!');
     }, delayAfterLoad);
   }
 
