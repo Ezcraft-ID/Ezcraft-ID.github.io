@@ -26,11 +26,17 @@
   </div>
   <!-- ============================================= -->
 
-  <!-- ================= PRELOADER ================= -->
-  <div id="preloader" class="fixed top-0 left-0 w-full h-full bg-white dark:bg-gray-900 flex items-center justify-center z-[9999]">
+<!-- ================= PRELOADER ================= -->
+<div id="preloader" class="fixed top-0 left-0 w-full h-full bg-white dark:bg-gray-900 flex flex-col items-center justify-center z-[9999]">
+  <video autoplay loop muted playsinline class="w-24 h-24">
+    <source src="assets/img/preload.webm" type="video/webm">
     <img src="assets/img/preload.gif" alt="Loading..." class="w-24 h-24">
-  </div>
-  <!-- ============================================= -->
+  </video>
+  <p class="mt-4 text-lg font-semibold text-gray-700 dark:text-gray-300 animate-pulse">
+    Loading...
+  </p>
+</div>
+<!-- ============================================= -->
 
   <!-- Background Animasi -->
   <canvas id="bgCanvas" class="fixed top-0 left-0 w-full h-full -z-10"></canvas>
@@ -58,14 +64,14 @@
     </nav>
   </header>
 
-  <!-- Hero -->
-  <section class="min-h-screen flex flex-col justify-center items-center text-center px-4">
-    <img src="assets/img/potrait.jpg" alt="Foto Deni" class="rounded-full w-40 h-40 shadow-lg border-4 border-white mb-4">
-    <h2 class="text-3xl md:text-4xl font-bold">Deni April Rian Pratama</h2>
-    <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 mt-2">
-      Pelajar SMK - Teknik Jaringan Komputer & Telekomunikasi
-    </p>
-  </section>
+<!-- Hero -->
+<section class="min-h-screen flex flex-col justify-center items-center text-center px-4">
+  <img src="assets/img/potrait.webp" alt="Foto Deni" class="rounded-full w-40 h-40 shadow-lg border-4 border-white mb-4">
+  <h2 class="text-3xl md:text-4xl font-bold">Deni April Rian Pratama</h2>
+  <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 mt-2">
+    Pelajar SMK - Teknik Jaringan Komputer & Telekomunikasi
+  </p>
+</section>
 
   <!-- About -->
   <section id="about" class="max-w-4xl mx-auto py-20 px-6 text-center">
@@ -110,10 +116,10 @@
   <!-- Floating Contact Button -->
   <div class="fixed bottom-20 right-6 flex flex-col items-end gap-3 z-50">
     <!-- Icons -->
-    <a href="https://instagram.com/deniii.26_/" class="contact-icon bg-pink-500"><img src="https://img.icons8.com/ios-filled/24/ffffff/instagram-new.png"/></a>
-    <a href="https://facebook.com/deniaprilrian.p26/" class="contact-icon bg-blue-600"><img src="https://img.icons8.com/ios-filled/24/ffffff/facebook.png"/></a>
-    <a href="https://tiktok.com/@deni.26_/" class="contact-icon bg-black"><img src="https://img.icons8.com/ios-filled/24/ffffff/tiktok.png"/></a>
-    <a href="mailto:mailme@deni26.my.id/" class="contact-icon bg-red-500"><img src="https://img.icons8.com/ios-filled/24/ffffff/email.png"/></a>
+    <a href="https://instagram.com/deniii.26_/" class="contact-icon bg-pink-500"><img src="https://img.icons8.com/ios-filled/24/ffffff/instagram-new.png" alt="Instagram"/></a>
+    <a href="https://facebook.com/deniaprilrian.p26/" class="contact-icon bg-blue-600"><img src="https://img.icons8.com/ios-filled/24/ffffff/facebook.png" alt="Facebook"/></a>
+    <a href="https://tiktok.com/@deni.26_/" class="contact-icon bg-black"><img src="https://img.icons8.com/ios-filled/24/ffffff/tiktok.png" alt="TikTok"/></a>
+    <a href="mailto:mailme@deni26.my.id/" class="contact-icon bg-red-500"><img src="https://img.icons8.com/ios-filled/24/ffffff/email.png" alt="E-mail"/></a>
 
     <!-- Main Button -->
     <button id="contactToggle" class="w-14 h-14 rounded-full bg-blue-500 shadow-lg flex items-center justify-center">
@@ -126,20 +132,15 @@
     &copy; 2025 Deni ARP. Dibuat dengan penuh semangat.
   </footer>
 
-<<<<<<< HEAD
-<!-- GIF Pojok Kiri (ikuti tombol +) -->
-<img id="gifDekorasi" src="assets/img/hu-tao.gif"
-     alt="My bubub🥰"
-     class="fixed left-4 w-20 sm:w-20 h-auto z-50 pointer-events-auto max-w-[100px]">
-=======
-  <!-- GIF Pojok Kiri (ikuti tombol +) -->
-  <img id="gifDekorasi" src="assets/img/hu-tao.gif"
-       alt="GIF Dekorasi"
+<!-- Video Pojok Kiri (ikuti tombol +) -->
+<video id="gifDekorasi" autoplay loop muted playsinline
+       aria-label="Dekorasi animasi"
        class="fixed left-4 w-20 sm:w-20 h-auto z-50 pointer-events-auto max-w-[100px]">
->>>>>>> 42b19f3 (refreshing)
+  <source src="assets/img/hu-tao.webm" type="video/webm">
+</video>
 
   <audio id="bgAudio" loop preload="auto" muted>
-    <source src="assets/bgm/bgm.mp3" type="audio/mpeg" />
+    <source src="assets/bgm/bgm.ogg" type="audio/ogg" />
   </audio>
 
   <!-- JS -->
