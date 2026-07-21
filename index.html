@@ -4,160 +4,224 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portofolio | Deni ARP</title>
+  <meta name="description" content="Portofolio Deni April Rian Pratama - Pelajar SMK Teknik Jaringan Komputer & Telekomunikasi.">
   <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-
-  <!-- Tailwind CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    if (localStorage.getItem('theme') === 'dark' ||
+        (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  
-  <!-- Custom CSS -->
+  <script>tailwind.config = { darkMode: 'class' }</script>
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="font-[Poppins] text-gray-900 dark:text-gray-100 transition-colors duration-500">
 
-  <!-- ================= AWAN CSS ================== -->
   <div id="clouds-container">
     <div class="cloud"></div>
     <div class="cloud"></div>
     <div class="cloud"></div>
   </div>
-  <!-- ============================================= -->
 
-<!-- ================= PRELOADER ================= -->
-<div id="preloader" class="fixed top-0 left-0 w-full h-full bg-white dark:bg-gray-900 flex flex-col items-center justify-center z-[9999]">
-  <video autoplay loop muted playsinline class="w-24 h-24">
-    <source src="assets/img/preload.webm" type="video/webm">
-    <img src="assets/img/preload.gif" alt="Loading..." class="w-24 h-24">
-  </video>
-  <p class="mt-4 text-lg font-semibold text-gray-700 dark:text-gray-300 animate-pulse">
-    Loading...
-  </p>
-</div>
-<!-- ============================================= -->
+  <div id="preloader">
+    <video autoplay loop muted playsinline class="w-24 h-24">
+      <source src="assets/img/preload.webm" type="video/webm">
+      <img src="assets/img/preload.gif" alt="Loading..." class="w-24 h-24">
+    </video>
+    <p class="preloader-text">Loading...</p>
+  </div>
 
-  <!-- Background Animasi -->
   <canvas id="bgCanvas" class="fixed top-0 left-0 w-full h-full -z-10"></canvas>
 
-  <!-- Navbar -->
-  <header class="fixed w-full bg-white/60 dark:bg-gray-900/60 backdrop-blur-md shadow-sm z-50">
-    <nav class="max-w-5xl mx-auto flex justify-between items-center p-4">
-      <h1 class="text-lg font-bold">Deni ARP</h1>
-      
-      <!-- Wrapper untuk item di sebelah kanan -->
-      <div class="flex items-center gap-4">
-        <ul class="hidden md:flex gap-6">
-          <li><a href="#about" class="hover:text-blue-500">Tentang</a></li>
-          <li><a href="#skills" class="hover:text-blue-500">Keahlian</a></li>
-          <li><a href="#projects" class="hover:text-blue-500">Proyek</a></li>
+  <header id="navbar" class="fixed w-full z-50 transition-all duration-300">
+    <nav class="max-w-5xl mx-auto flex justify-between items-center px-6 py-4">
+      <a href="#" class="nav-logo">
+        <span class="logo-bracket">&lt;</span>Deni<span class="logo-highlight">ARP</span><span class="logo-bracket">/&gt;</span>
+      </a>
+      <div class="flex items-center gap-3">
+        <ul class="hidden md:flex gap-1">
+          <li><a href="#about" class="nav-link">Tentang</a></li>
+          <li><a href="#skills" class="nav-link">Keahlian</a></li>
+          <li><a href="#projects" class="nav-link">Proyek</a></li>
         </ul>
-  
-        <!-- Tombol Musik (SUDAH DIPERBAIKI) -->
-        <button id="diskBtn" aria-label="Toggle Music" title="Toggle Music"
-          class="w-10 h-10 flex items-center justify-center bg-gray-100/80 dark:bg-gray-800/80 rounded-full shadow-md transition-transform hover:scale-110">
-          <i class="fa-solid fa-compact-disc text-gray-800 dark:text-gray-200 text-xl"></i>
-        </button>
+        <div class="flex items-center gap-2 ml-2">
+          <button id="themeBtn" aria-label="Toggle Dark Mode" title="Toggle Dark Mode" class="icon-btn">
+            <i id="themeIcon" class="fa-solid fa-moon"></i>
+          </button>
+          <button id="diskBtn" aria-label="Toggle Music" title="Toggle Music" class="icon-btn">
+            <i class="fa-solid fa-compact-disc"></i>
+          </button>
+        </div>
       </div>
-      
     </nav>
   </header>
 
-<!-- Hero -->
-<section class="min-h-screen flex flex-col justify-center items-center text-center px-4">
-  <img src="assets/img/potrait.webp" alt="Foto Deni" class="rounded-full w-40 h-40 shadow-lg border-4 border-white mb-4">
-  <h2 class="text-3xl md:text-4xl font-bold">Deni April Rian Pratama</h2>
-  <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 mt-2">
-    Pelajar SMK - Teknik Jaringan Komputer & Telekomunikasi
-  </p>
-</section>
-
-  <!-- About -->
-  <section id="about" class="max-w-4xl mx-auto py-20 px-6 text-center">
-    <h2 class="text-2xl font-bold mb-4">Tentang Saya</h2>
-    <p class="text-gray-700 dark:text-gray-300">
-      Saya adalah siswa SMK jurusan Teknik Jaringan Komputer dan Telekomunikasi (TJKT), atau dikenal juga sebagai TKJ. 
-      Memiliki minat di bidang jaringan, teknologi, dan komputer. 
-      Sedang mengembangkan kemampuan di bidang IT untuk mempersiapkan karier di masa depan.
+  <section id="hero" class="min-h-screen flex flex-col justify-center items-center text-center px-4 pt-20">
+    <div class="hero-avatar-wrapper">
+      <img src="assets/img/potrait.webp" alt="Foto Deni" class="hero-avatar">
+      <div class="avatar-ring"></div>
+    </div>
+    <div class="hero-badge">👨‍💻 Open to Opportunities</div>
+    <h2 class="hero-name">Deni April Rian Pratama</h2>
+    <p class="hero-subtitle">
+      <span class="typed-prefix">Saya seorang </span><span id="typed-text" class="typed-word"></span><span class="typed-cursor">|</span>
     </p>
-  </section>
-
-  <!-- Skills -->
-  <section id="skills" class="bg-gray-100 dark:bg-gray-800 py-20 px-6 text-center">
-    <h2 class="text-2xl font-bold mb-8">Keahlian</h2>
-    <div class="flex flex-wrap justify-center gap-4">
-      <span class="skill-badge">HTML</span>
-      <span class="skill-badge">CSS</span>
-      <span class="skill-badge">JavaScript</span>
-      <span class="skill-badge">Networking</span>
-      <span class="skill-badge">Hardware</span>
-      <span class="skill-badge">IoT (Internet of Things)</span>
-      <span class="skill-badge">Microsoft Office</span>
-      <span class="skill-badge">Canva</span>
+    <div class="hero-cta-group">
+      <a href="#projects" class="btn-primary">Lihat Proyek <i class="fa-solid fa-arrow-right ml-1"></i></a>
+      <a href="#about" class="btn-outline">Tentang Saya</a>
+    </div>
+    <div class="hero-scroll-hint">
+      <i class="fa-solid fa-chevron-down"></i>
     </div>
   </section>
 
-  <!-- Projects -->
-  <section id="projects" class="max-w-5xl mx-auto py-20 px-6 text-center">
-    <h2 class="text-2xl font-bold mb-8">Proyek</h2>
-    <div class="grid md:grid-cols-2 gap-6">
-      <div class="project-card">
-        <h3 class="text-lg font-bold mb-2">IoT Penyiram Tanaman</h3>
-        <p>Pernah merancang sebuah prototype IoT yaitu penyiram tanaman otomatis dan bisa diaktifkan manual melalui website/aplikasi menggunakan ESP8266 sebagai microcontroller-nya. </p>
-      </div>
-      <div class="project-card">
-        <h3 class="text-lg font-bold mb-2">Jaringan LAN</h3>
-        <p>Pernah merancang dan memasang jaringan LAN untuk lab komputer sekolah.</p>
+  <section id="about" class="section-wrapper reveal">
+    <div class="section-inner max-w-3xl">
+      <span class="section-tag">Siapa Saya?</span>
+      <h2 class="section-title">Tentang Saya</h2>
+      <div class="about-card">
+        <p class="about-text">
+          Saya adalah siswa SMK jurusan <strong>Teknik Jaringan Komputer dan Telekomunikasi (TJKT)</strong>,
+          atau dikenal juga sebagai TKJ. Memiliki minat di bidang jaringan, teknologi, dan komputer.
+          Sedang mengembangkan kemampuan di bidang IT untuk mempersiapkan karier di masa depan.
+        </p>
+        <div class="about-stats">
+          <div class="stat-item">
+            <span class="stat-number">2+</span>
+            <span class="stat-label">Tahun Belajar</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number">8+</span>
+            <span class="stat-label">Skill Dikuasai</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number">2+</span>
+            <span class="stat-label">Proyek Selesai</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Floating Contact Button -->
+  <section id="skills" class="section-wrapper section-alt reveal">
+    <div class="section-inner max-w-4xl">
+      <span class="section-tag">Kemampuan</span>
+      <h2 class="section-title">Keahlian</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <i class="fa-brands fa-html5 skill-icon" style="color:#e34f26;"></i>
+          <span>HTML</span>
+        </div>
+        <div class="skill-card">
+          <i class="fa-brands fa-css3-alt skill-icon" style="color:#264de4;"></i>
+          <span>CSS</span>
+        </div>
+        <div class="skill-card">
+          <i class="fa-brands fa-js skill-icon" style="color:#f0db4f;"></i>
+          <span>JavaScript</span>
+        </div>
+        <div class="skill-card">
+          <i class="fa-solid fa-network-wired skill-icon" style="color:#38bdf8;"></i>
+          <span>Networking</span>
+        </div>
+        <div class="skill-card">
+          <i class="fa-solid fa-microchip skill-icon" style="color:#a78bfa;"></i>
+          <span>Hardware</span>
+        </div>
+        <div class="skill-card">
+          <i class="fa-solid fa-wifi skill-icon" style="color:#34d399;"></i>
+          <span>IoT</span>
+        </div>
+        <div class="skill-card">
+          <i class="fa-brands fa-microsoft skill-icon" style="color:#f59e0b;"></i>
+          <span>MS Office</span>
+        </div>
+        <div class="skill-card">
+          <i class="fa-solid fa-palette skill-icon" style="color:#f472b6;"></i>
+          <span>Canva</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="section-wrapper reveal">
+    <div class="section-inner max-w-5xl">
+      <span class="section-tag">Portofolio</span>
+      <h2 class="section-title">Proyek</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-icon-wrap" style="background: linear-gradient(135deg,#34d399,#059669);">
+            <i class="fa-solid fa-seedling project-icon"></i>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">IoT Penyiram Tanaman</h3>
+            <p class="project-desc">Merancang prototype IoT penyiram tanaman otomatis yang bisa dikontrol manual via website/aplikasi menggunakan ESP8266 sebagai microcontroller.</p>
+            <div class="project-tags">
+              <span class="ptag">ESP8266</span>
+              <span class="ptag">IoT</span>
+              <span class="ptag">Web</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-icon-wrap" style="background: linear-gradient(135deg,#60a5fa,#3b82f6);">
+            <i class="fa-solid fa-server project-icon"></i>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Jaringan LAN</h3>
+            <p class="project-desc">Merancang dan memasang jaringan LAN untuk laboratorium komputer sekolah, termasuk konfigurasi perangkat jaringan dan pengkabelan.</p>
+            <div class="project-tags">
+              <span class="ptag">LAN</span>
+              <span class="ptag">Cisco</span>
+              <span class="ptag">Cabling</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <div class="fixed bottom-20 right-6 flex flex-col items-end gap-3 z-50">
-    <!-- Icons -->
-    <a href="https://instagram.com/deniii.26_/" class="contact-icon bg-pink-500"><img src="https://img.icons8.com/ios-filled/24/ffffff/instagram-new.png" alt="Instagram"/></a>
-    <a href="https://facebook.com/deniaprilrian.p26/" class="contact-icon bg-blue-600"><img src="https://img.icons8.com/ios-filled/24/ffffff/facebook.png" alt="Facebook"/></a>
-    <a href="https://tiktok.com/@deni.26_/" class="contact-icon bg-black"><img src="https://img.icons8.com/ios-filled/24/ffffff/tiktok.png" alt="TikTok"/></a>
-    <a href="mailto:mailme@deni26.my.id/" class="contact-icon bg-red-500"><img src="https://img.icons8.com/ios-filled/24/ffffff/email.png" alt="E-mail"/></a>
-
-    <!-- Main Button -->
-    <button id="contactToggle" class="w-14 h-14 rounded-full bg-blue-500 shadow-lg flex items-center justify-center">
-      <img src="https://img.icons8.com/ios-filled/28/ffffff/plus-math.png"/>
+    <a href="https://instagram.com/deniii.26_/" class="contact-icon bg-pink-500" target="_blank" rel="noopener">
+      <img src="https://img.icons8.com/ios-filled/24/ffffff/instagram-new.png" alt="Instagram">
+    </a>
+    <a href="https://facebook.com/deniaprilrian.p26/" class="contact-icon bg-blue-600" target="_blank" rel="noopener">
+      <img src="https://img.icons8.com/ios-filled/24/ffffff/facebook.png" alt="Facebook">
+    </a>
+    <a href="https://tiktok.com/@deni.26_/" class="contact-icon bg-black" target="_blank" rel="noopener">
+      <img src="https://img.icons8.com/ios-filled/24/ffffff/tiktok.png" alt="TikTok">
+    </a>
+    <a href="mailto:mailme@deni26.my.id" class="contact-icon bg-red-500">
+      <img src="https://img.icons8.com/ios-filled/24/ffffff/email.png" alt="E-mail">
+    </a>
+    <button id="contactToggle" class="contact-toggle-btn" aria-label="Toggle kontak">
+      <i class="fa-solid fa-plus contact-toggle-icon"></i>
     </button>
   </div>
 
-  <!-- Footer -->
-  <footer class="fixed bottom-0 w-full bg-white/30 dark:bg-gray-900/30 backdrop-blur-md text-center py-4 text-gray-600 dark:text-gray-400">
-    &copy; 2025 Deni ARP. Dibuat dengan penuh semangat.
+  <footer class="footer-bar">
+    <p>
+      <span class="footer-logo">&lt;DeniARP/&gt;</span>
+      &nbsp;·&nbsp; &copy; 2025 &nbsp;·&nbsp; Dibuat dengan <i class="fa-solid fa-heart" style="color:#f472b6;"></i> dan semangat (serta Claude & Gemini)
+    </p>
   </footer>
 
-<!-- Video Pojok Kiri (ikuti tombol +) -->
-<video id="gifDekorasi" autoplay loop muted playsinline
-       aria-label="Dekorasi animasi"
-       class="fixed left-4 w-20 sm:w-20 h-auto z-50 pointer-events-auto max-w-[100px]">
-  <source src="assets/img/hu-tao.webm" type="video/webm">
-</video>
+  <video id="gifDekorasi" autoplay loop muted playsinline
+    aria-label="Dekorasi animasi"
+    class="fixed left-4 w-20 sm:w-20 h-auto z-50 pointer-events-auto max-w-[100px]">
+    <source src="assets/img/hu-tao.webm" type="video/webm">
+  </video>
 
   <audio id="bgAudio" loop preload="auto" muted>
-    <source src="assets/bgm/bgm.ogg" type="audio/ogg" />
+    <source src="assets/bgm/bgm.ogg" type="audio/ogg">
   </audio>
 
-  <!-- JS -->
   <script src="assets/js/script.js"></script>
-<script>
-  window.addEventListener("load", () => {
-    const preloader = document.getElementById("preloader");
-    
-    // Tahan dulu
-    setTimeout(() => {
-      preloader.style.opacity = "0";
-      setTimeout(() => {
-        preloader.style.display = "none";
-      }, 500); // delay animasi fade-out
-    }, 1500); // waktu preload
-  });
-</script>
 
 </body>
 </html>
