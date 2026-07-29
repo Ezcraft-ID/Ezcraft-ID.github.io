@@ -112,12 +112,80 @@ body {
     transform: translateY(-2px);
 }
 
+/* ---------- More Popup ---------- */
+.more-popup {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    background-color: #2b2b2b;
+    border: 1px solid #3a3a3a;
+    border-radius: 14px;
+    padding: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 160px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    z-index: 100;
+
+    /* Animasi muncul */
+    opacity: 0;
+    transform: scale(0.9) translateY(6px);
+    transform-origin: top right;
+    pointer-events: none;
+    transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.more-popup.open {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    pointer-events: auto;
+}
+
+.more-popup-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 12px;
+    border-radius: 9px;
+    text-decoration: none;
+    color: #cccccc;
+    font-size: 13px;
+    font-weight: 500;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.more-popup-item i {
+    font-size: 15px;
+    width: 18px;
+    text-align: center;
+    color: #888;
+    transition: color 0.15s ease;
+}
+
+.more-popup-item:hover {
+    background-color: #3f3f3f;
+    color: #ffffff;
+}
+
+.more-popup-item:hover i {
+    color: #ffffff;
+}
+
+/* Tombol ... aktif saat popup terbuka */
+.social-btn.active {
+    background-color: #555555;
+}
+
 /* ---------- Scroll Hint (pinned di dasar layar) ---------- */
+
 .scroll-hint {
     position: fixed;
     bottom: 24px;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
